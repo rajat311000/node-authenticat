@@ -29,7 +29,7 @@ module.exports.signUp = function(req, res){
 
 
     return res.render('user_sign_up', {
-        title: "Codeial | Sign Up"
+        title: "Sign Up"
     })
 }
 
@@ -41,7 +41,7 @@ module.exports.signIn = function(req, res){
         return res.redirect('/users/profile');
     }
     return res.render('user_sign_in', {
-        title: "Codeial | Sign In"
+        title: " Sign In"
     })
 }
 
@@ -94,7 +94,7 @@ module.exports.resetPassword = function(req, res)
 {
     return res.render('reset_password',
     {
-        title: 'Codeial | Reset Password',
+        title: ' Reset Password',
         access: false
     });
 }
@@ -127,7 +127,7 @@ module.exports.resetPassMail = function(req, res)
                     data: {
                         user: user
                     },
-                    message: "Post created!"
+                    message: "reset password!"
                 });
             }
             
