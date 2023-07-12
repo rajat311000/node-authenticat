@@ -8,9 +8,9 @@ require('dotenv').config();
 
 // tell passport to use a new strategy for google login
 passport.use(new googleStrategy({
-        clientID:'236027598562-2kc35qj1nb211vt5qsvmfa2n1mre3utj.apps.googleusercontent.com',
-        clientSecret:'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', 
-        callbackURL:'https://localhost:8000/users/auth/google/callback'
+        clientID:'236027598562-186700195231-e2n58j1uaud0dtbcig28tcgcldj5jqat.apps.googleusercontent.com',
+        clientSecret:'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', 
+        callbackURL:'https://good-pink-cheetah-hose.cyclic.app/users/auth/google/callback'
 
 
       
