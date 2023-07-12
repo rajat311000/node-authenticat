@@ -10,7 +10,7 @@ require('dotenv').config();
 passport.use(new googleStrategy({
         clientID:'236027598562-2kc35qj1nb211vt5qsvmfa2n1mre3utj.apps.googleusercontent.com',
         clientSecret:process.env.CODEIAL_GOOGLE_CLIENT_SECRET, 
-        callbackURL: process.env.CODEIAL_GOOGLE_CALLBACK_RURL
+        callbackURL:'https://authentication-user-xrer.onrender.com/users/auth/google/callback'
 
 
       
