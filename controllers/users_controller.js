@@ -1,9 +1,10 @@
 const User = require('../models/user');
 const fs = require('fs');
 const path = require('path');
+const usersMailer = require('../mailers/users_mailer');
 const crypto  = require('crypto')
-const queue = require('../config/kue');
-const userEmailWorker = require('../workers/user_email_worker');
+const user = require('../models/user');
+
 
 //render the profile
 module.exports.profile = function(req, res){
@@ -114,17 +115,24 @@ module.exports.resetPassMail = function(req, res)
                 user.accessToken = crypto.randomBytes(30).toString('hex');
                 user.isTokenValid = true;
                 user.save();
-            }
+}
 
-            let job = queue.create('user-emails', user).save(function(err)
-            {
-                if(err)
-                {
-                    console.log('Error in sending to the queue', err);
-                    return;
-                }
-                // console.log('Job enqueued', job.id);
-            });
+
+
+            usersMailer.resetPassword(user);
+            if (req.xhr){
+                
+    
+                return res.status(200).json({
+                    data: {
+                        user: user
+                    },
+                    message: "Post created!"
+                });
+            }
+            
+
+           
 
             req.flash('success', 'Password reset link sent. Please check your mail');
             return res.redirect('/');
