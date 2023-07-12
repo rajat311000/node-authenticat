@@ -9,7 +9,7 @@ require('dotenv').config();
 // tell passport to use a new strategy for google login
 passport.use(new googleStrategy({
         clientID:'236027598562-2kc35qj1nb211vt5qsvmfa2n1mre3utj.apps.googleusercontent.com',
-        clientSecret:process.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, 
+        clientSecret:'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', 
         callbackURL:'https://authentication-user-xrer.onrender.com/users/auth/google/callback'
 
 
