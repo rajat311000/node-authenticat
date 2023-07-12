@@ -13,7 +13,8 @@ passport.use(new googleStrategy({
         callbackURL:'https://good-pink-cheetah-hose.cyclic.app/users/auth/google/callback'
 
 
-      
+
+        
     },
 
     function(accessToken, refreshToken, profile, done){
